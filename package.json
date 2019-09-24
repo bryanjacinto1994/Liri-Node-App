@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bryanjacinto1994/Liri-Node-App#readme",
   "dependencies": {
-    "dotenv": "^8.1.0"
+    "dotenv": "^8.1.0",
+    "node-spotify-api": "^1.1.1"
   }
 }
