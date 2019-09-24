@@ -16,7 +16,9 @@ do-what-it-says
 */
 
 //============================= [BandsinTown Concerts] =============================
-/* Name of the venue
+/* 
+Name of the artist
+Name of the venue
 Venue location
 Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 
@@ -31,3 +33,12 @@ var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_i
 
 //Log the URL for future de-bugging.
 console.log(queryURL);
+
+//Get function via axio to make requests with the API key
+axios.get(queryURL).then(
+    function(response){
+        console.log("You have searched " + response.name);
+        console.log(response.name)
+    }
+
+)
