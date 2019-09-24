@@ -22,3 +22,7 @@ Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 
 //Include axios npm package
 var axios = require("axios");
+
+//Grab the artist or band's name with a value of process.argv[2]
+var artistName = process.argv[2];
+
