@@ -26,3 +26,5 @@ var axios = require("axios");
 //Grab the artist or band's name with a value of process.argv[2]
 var artistName = process.argv[2];
 
+//Make a url request with BandsinTown
+var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
