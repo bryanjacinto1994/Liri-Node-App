@@ -3,7 +3,7 @@ require("dotenv").config();
 
 //A variable that imports the keys.js file
 var keys = require("./keys.js"); 
-
+var Spotify = require('node-spotify-api');
 //Access the keys information with spotify
 var spotify = new Spotify(keys.spotify);
 
