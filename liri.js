@@ -117,5 +117,19 @@ axios.get(movieURL).then(
         console.log("\nPlot: " + response.Plot + "\n");
         //This logs the Actors in the movie
         console.log("\nCast: " + response.Actors + "\n");
-    }
-)
+    })
+
+    .catch(function(error){
+         if(error.response){
+             console.log(error.response.name);
+             console.log(error.response.status);
+             console.log(error.response.headers);
+         }
+         else if (error.request){
+             console.log(error.request);
+         }
+         else{
+             console.log("Error", error.message);
+         }
+         console.log(error.config);
+    });
