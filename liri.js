@@ -1,12 +1,6 @@
 //Reads and sets any evironment variables with the 'dotenv' package
 require("dotenv").config();
 
-//A variable that imports the keys.js file
-var keys = require("./keys.js"); 
-var Spotify = require('node-spotify-api');
-//Access the keys information with spotify
-var spotify = new Spotify(keys.spotify);
-
 /*
 Make liri.js take these commands in:
 conert-this
@@ -15,7 +9,17 @@ movie-this
 do-what-it-says
 */
 
+
 //============================= [BandsinTown Concerts] =============================
+//A variable that imports the keys.js file
+var keys = require("./keys.js"); 
+var Spotify = require('node-spotify-api');
+//Access the keys information with spotify
+var spotify = new Spotify(keys.spotify);
+
+
+
+//============================= [BandsinTown Concerts] =============================//
 /* 
 Name of the artist
 Name of the venue
@@ -44,13 +48,13 @@ var artistName = process.argv[2];
 // }
 
 //Make a url request with BandsinTown
-var queryURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"
+var bandsURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"
 
 //Log the URL for future de-bugging.
-console.log(queryURL);
+console.log(bandsURL);
 
 //Get function via axio to make requests with the API key
-axios.get(queryURL).then(
+axios.get(bandsURL).then(
     function(response){
         //This logs the artist name 
         console.log("\nArtist: " + artistName + "\n");
@@ -84,3 +88,10 @@ axios.get(queryURL).then(
             }
             console.log(error.config);
         });
+
+//============================= [Open Movie Data Base] =============================//
+
+//Make a variable that holds value of process.argv[2]
+var movieName = process.argv[2];
+//Make a variable that holds the open movie data base (OMDB) URL link
+var movieURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
