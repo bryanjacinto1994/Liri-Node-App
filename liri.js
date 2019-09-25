@@ -50,14 +50,17 @@ console.log(queryURL);
 //Get function via axio to make requests with the API key
 axios.get(queryURL).then(
     function(response){
-        console.log("You have searched " + response.name);
-        console.log(response.name);
-        console.log("The name of the venue where " + response.name + " is performing is at " + response.venue);
-        console.log(response.venue);
-        var city = response.city;
-        var state = response.state;
-        var country = response.country;
-        console.log("The venue is located at " + city + "," + state + " " + country);
+        //Holds artist name and console.log that artist is searched
+        var artist = response.name;
+        console.log("You have searched " + artist);
+        console.log(artist);
+        var venueName = response.venue;
+        console.log("The name of the venue where " + artist + " is performing is at " + venueName);
+        console.log(venueName);
+        var date = response.datetime;
+        
+
+        
         
     }
 
