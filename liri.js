@@ -116,5 +116,6 @@ axios.get(movieURL).then(
         //This logs the Plot of the movie
         console.log("\nYear: " + response.Plot + "\n");
         //This logs the Actors in the movie
+        console.log("\nYear: " + response.Actors + "\n");
     }
 )
