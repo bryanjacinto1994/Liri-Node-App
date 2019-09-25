@@ -10,12 +10,13 @@ do-what-it-says
 */
 
 
-//============================= [BandsinTown Concerts] =============================
+//============================= [Spotify Keys] =============================
 //A variable that imports the keys.js file
 var keys = require("./keys.js"); 
 var Spotify = require('node-spotify-api');
 //Access the keys information with spotify
 var spotify = new Spotify(keys.spotify);
+var fs = require("fs");
 
 
 
@@ -93,6 +94,7 @@ axios.get(bandsURL).then(
 */
 //============================= [Open Movie Data Base] =============================//
 
+/*
 //Make a variable that holds value of process.argv[2]
 var movieName = process.argv[2];
 //Make a variable that holds the open movie data base (OMDB) URL link
@@ -102,21 +104,21 @@ console.log(movieURL);
 //Get function via axio to make requests with the API key
 axios.get(movieURL).then(
     function(response){
-        console.log(response);
+        // console.log(response);
         //This logs the movie Title name
         console.log("\nTitle: " + movieName + "\n");
         //This logs the Year of the movie
-        console.log("\nYear: " + response.Year + "\n");
+        console.log("Year: " + response.data.Year + "\n");
         //This logs the Rating of the movie via IMDB
-        console.log("\nIMDB Ratings: " + response.imdbRating + "\n");
+        console.log("IMDB Ratings: " + response.data.imdbRating + "\n");
         //This logs the Rating of the movie via Rotten Tomatoes
-        console.log("\nOther Ratings: " + response.Ratings + "\n");
+        // console.log("Other Ratings: " + response.data.Ratings + "\n"); ==================== Go back to this ==================
         //This logs the Country where the movie was produced
-        console.log("\nCountry: " + response.Country + "\n");
+        console.log("Country: " + response.data.Country + "\n");
         //This logs the Plot of the movie
-        console.log("\nPlot: " + response.Plot + "\n");
+        console.log("Plot: " + response.data.Plot + "\n");
         //This logs the Actors in the movie
-        console.log("\nCast: " + response.Actors + "\n");
+        console.log("Cast: " + response.data.Actors + "\n");
     })
 
     .catch(function(error){
@@ -133,3 +135,6 @@ axios.get(movieURL).then(
          }
          console.log(error.config);
     });
+*/
+
+//============================= [Do-What-It-Says] =============================//
