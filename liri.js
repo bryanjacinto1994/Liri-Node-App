@@ -94,4 +94,5 @@ axios.get(bandsURL).then(
 //Make a variable that holds value of process.argv[2]
 var movieName = process.argv[2];
 //Make a variable that holds the open movie data base (OMDB) URL link
-var movieURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+var movieURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+console.log(movieURL);
