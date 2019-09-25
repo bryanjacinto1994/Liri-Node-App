@@ -108,14 +108,14 @@ axios.get(movieURL).then(
         //This logs the Year of the movie
         console.log("\nYear: " + response.Year + "\n");
         //This logs the Rating of the movie via IMDB
-        console.log("\nYear: " + response.imdbRating + "\n");
+        console.log("\nIMDB Ratings: " + response.imdbRating + "\n");
         //This logs the Rating of the movie via Rotten Tomatoes
-        console.log("\nYear: " + response.Ratings + "\n");
+        console.log("\nOther Ratings: " + response.Ratings + "\n");
         //This logs the Country where the movie was produced
-        console.log("\nYear: " + response.Country + "\n");
+        console.log("\nCountry: " + response.Country + "\n");
         //This logs the Plot of the movie
-        console.log("\nYear: " + response.Plot + "\n");
+        console.log("\nPlot: " + response.Plot + "\n");
         //This logs the Actors in the movie
-        console.log("\nYear: " + response.Actors + "\n");
+        console.log("\nCast: " + response.Actors + "\n");
     }
 )
