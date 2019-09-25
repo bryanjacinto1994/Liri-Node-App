@@ -105,5 +105,16 @@ axios.get(movieURL).then(
         console.log(response);
         //This logs the movie Title name
         console.log("\nTitle: " + movieName + "\n");
+        //This holds the Year of the movie
+
+        //This holds the Rating of the movie via IMDB
+
+        //This holds the Rating of the movie via Rotten Tomatoes
+
+        //This holds the Country where the movie was produced
+
+        //This holds the Plot of the movie
+
+        //This holds the Actors in the movie
     }
 )
