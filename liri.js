@@ -34,6 +34,8 @@ var moment = require('moment');
 //Store arguments in an Array
 // var nodeArguments = process.argv;
 
+/*
+
 //Make an empty variable to hold artist name
 var artistName = process.argv[2];
 
@@ -88,7 +90,7 @@ axios.get(bandsURL).then(
             }
             console.log(error.config);
         });
-
+*/
 //============================= [Open Movie Data Base] =============================//
 
 //Make a variable that holds value of process.argv[2]
@@ -96,3 +98,12 @@ var movieName = process.argv[2];
 //Make a variable that holds the open movie data base (OMDB) URL link
 var movieURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 console.log(movieURL);
+
+//Get function via axio to make requests with the API key
+axios.get(movieURL).then(
+    function(response){
+        console.log(response);
+        //This logs the movie Title name
+        console.log("\nTitle: " + movieName + "\n");
+    }
+)
