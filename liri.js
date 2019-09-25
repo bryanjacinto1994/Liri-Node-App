@@ -25,11 +25,24 @@ Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 //Include axios npm package
 var axios = require("axios");
 
-//Grab the artist or band's name with a value of process.argv[2]
-var artistName = process.argv[2];
+//Store arguments in an Array
+var nodeArguments = process.argv;
+
+//Make an empty variable to hold artist name
+var artistName = "";
+
+//Make a 'for loop' function so the search can take in two words name.
+for (var i = 2; i < nodeArguments.length; i++){
+    if(i > 2 && i < nodeArguments.length){
+        artistName = artistName + "+" + nodeArguments[i];
+    }
+    else{
+        artistName += nodeArguments[i];
+    }
+}
 
 //Make a url request with BandsinTown
-var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
+var queryURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"
 
 //Log the URL for future de-bugging.
 console.log(queryURL);
