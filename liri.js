@@ -26,23 +26,23 @@ Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 var axios = require("axios");
 
 //Store arguments in an Array
-var nodeArguments = process.argv;
+// var nodeArguments = process.argv;
 
 //Make an empty variable to hold artist name
-var artistName = "";
+var artistName = process.argv[2];
 
 //Make a 'for loop' function so the search can take in two words name.
-for (var i = 2; i < nodeArguments.length; i++){
-    if(i > 2 && i < nodeArguments.length){
-        artistName = artistName + "+" + nodeArguments[i];
-    }
-    else{
-        artistName += nodeArguments[i];
-    }
-}
+// for (var i = 2; i < nodeArguments.length; i++){
+//     if(i > 2 && i < nodeArguments.length){
+//         artistName = artistName + "+" + nodeArguments[i];
+//     }
+//     else{
+//         artistName += nodeArguments[i];
+//     }
+// }
 
 //Make a url request with BandsinTown
-var queryURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"
+var queryURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp&date=upcoming"
 
 //Log the URL for future de-bugging.
 console.log(queryURL);
@@ -51,7 +51,14 @@ console.log(queryURL);
 axios.get(queryURL).then(
     function(response){
         console.log("You have searched " + response.name);
-        console.log(response.name)
+        console.log(response.name);
+        console.log("The name of the venue where " + response.name + " is performing is at " + response.venue);
+        console.log(response.venue);
+        var city = response.city;
+        var state = response.state;
+        var country = response.country;
+        console.log("The venue is located at " + city + "," + state + " " + country);
+        
     }
 
 )
