@@ -18,6 +18,26 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
 
+//Make a Switch statement that has different actions
+switch(action){
+    
+    case "concert-this":
+        concertThis();
+        break;
+
+    case "spotify-this-song":
+        spotifyThis();
+        break;
+
+    case "movie-this":
+        movieThis();
+        break;
+
+    case "do-what-it-says":
+        doWhatItSays();
+        break;    
+}    
+
 
 
 //============================= [BandsinTown Concerts] =============================//
@@ -92,6 +112,24 @@ axios.get(bandsURL).then(
             console.log(error.config);
         });
 */
+
+//============================= [Spotify] =============================//
+
+function spotifyThis(){
+
+    spotify.search({ type: 'track', query: musicName})
+    .then(function(response){
+        //This holds the Artist name
+        console.log("Artist: " + response.tracks.items[0].artist[0].name);
+    })
+    .catch 
+    
+        
+
+
+}
+
+
 //============================= [Open Movie Data Base] =============================//
 
 /*
@@ -138,7 +176,7 @@ axios.get(movieURL).then(
 */
 
 //============================= [Do-What-It-Says] =============================//
-
+/*
 //Make a fs.readFile function that stores random.txt
 fs.readFile("random.txt", "utf8", function(error, data){
     //This will log to the Terminal/Git Bash if there are any errors
@@ -150,28 +188,11 @@ fs.readFile("random.txt", "utf8", function(error, data){
     console.log(data);
 
     var dataArray = data.split(",");
-    var liriDoThis = dataArray[0];
+    var action = dataArray[0];
     var spotify1 = dataArray[1];
     spotifyThis(spotify1)
     
 
     })
 
-switch(liriDoThis){
-    
-    case "concert-this":
-        concertThis();
-        break;
-
-    case "spotify-this-song":
-        spotifyThis();
-        break;
-
-    case "movie-this":
-        movieThis();
-        break;
-
-    case "do-what-it-says":
-        doWhatItSays();
-        break;    
-}    
+*/
