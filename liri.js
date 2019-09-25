@@ -138,3 +138,9 @@ axios.get(movieURL).then(
 */
 
 //============================= [Do-What-It-Says] =============================//
+
+fs.readFile("random.txt", "utf8", function(error, data){
+    if(error){
+        return console.log(error);
+    }
+})
