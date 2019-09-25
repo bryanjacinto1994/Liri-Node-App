@@ -54,11 +54,15 @@ axios.get(queryURL).then(
         var artist = response.name;
         console.log("You have searched " + artist);
         console.log(artist);
-        var venueName = response.venue;
+        //Holds Venue Locations
+        var venueName = JSON.stringify(response.venue)
         console.log("The name of the venue where " + artist + " is performing is at " + venueName);
         console.log(venueName);
+        //Holds events date
         var date = response.datetime;
         
+        console.log(date);
+
 
         
         
