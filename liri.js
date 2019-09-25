@@ -139,8 +139,27 @@ axios.get(movieURL).then(
 
 //============================= [Do-What-It-Says] =============================//
 
+//Make a fs.readFile function that stores random.txt
 fs.readFile("random.txt", "utf8", function(error, data){
+    //This will log to the Terminal/Git Bash if there are any errors
     if(error){
         return console.log(error);
     }
-})
+
+    //Prints the contents of data
+    console.log(data);
+
+    var dataArray = data.split(",");
+    var liriDoThis = dataArray[0];
+    var spotify1 = dataArray[1];
+    spotifyThis(spotify1)
+    
+
+    })
+
+switch(liriDoThis){
+    
+    case "concert-this":
+        concertThis();
+        break;
+}    
