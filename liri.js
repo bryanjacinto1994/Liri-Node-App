@@ -51,12 +51,19 @@ console.log(queryURL);
 axios.get(queryURL).then(
     function(response){
         //This logs the artist name 
-        console.log("Artist: " + artistName);
-        //A variable holding a  value of venue name and console.log venueName
+        console.log("\nArtist: " + artistName + "\n");
+        //A variable holding a value of venue name and console.log venueName
         var venueName = response.data[0].venue.name;
-        console.log("Venue Name: " + venueName);
+        console.log("\nVenue Name: " + venueName + "\n");
+        //A variable holding a value of venue city and state(region) location
+        var venueCity = response.data[0].venue.city;
+        var venueState = response.data[0].venue.region;
+        console.log("\nThe Venue is located at: " + venueCity + ", " + venueState + ".\n")
+        //Holds the date with the moment MM Do YYYY Format
+        var venueDate = response.data[0].datetime
+        console.log("\n" + artistName + " will be performing on " + venueDate + " at the " + venueName + ".\n");
 
-        
+
         
     })
         .catch(function(error){
