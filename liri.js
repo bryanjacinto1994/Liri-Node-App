@@ -108,7 +108,7 @@ axios.get(movieURL).then(
         //This logs the Year of the movie
         console.log("\nYear: " + response.Year + "\n");
         //This logs the Rating of the movie via IMDB
-
+        console.log("\nYear: " + response.imdbRating + "\n");
         //This logs the Rating of the movie via Rotten Tomatoes
 
         //This logs the Country where the movie was produced
