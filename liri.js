@@ -112,7 +112,7 @@ axios.get(movieURL).then(
         //This logs the Rating of the movie via Rotten Tomatoes
         console.log("\nYear: " + response.Ratings + "\n");
         //This logs the Country where the movie was produced
-
+        console.log("\nYear: " + response.Country + "\n");
         //This logs the Plot of the movie
 
         //This logs the Actors in the movie
