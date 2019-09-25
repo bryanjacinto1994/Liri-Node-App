@@ -24,6 +24,8 @@ Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 
 //Include axios npm package
 var axios = require("axios");
+//Include moment npm package
+var moment = require('moment');
 
 //Store arguments in an Array
 // var nodeArguments = process.argv;
@@ -60,8 +62,10 @@ axios.get(queryURL).then(
         var venueState = response.data[0].venue.region;
         console.log("\nThe Venue is located at: " + venueCity + ", " + venueState + ".\n")
         //Holds the date with the moment MM Do YYYY Format
-        var venueDate = response.data[0].datetime
-        console.log("\n" + artistName + " will be performing on " + venueDate + " at the " + venueName + ".\n");
+        var venueDate = response.data[0].datetime;
+        // var venueDateFormat = "YYYY MM DD T hh:mm:ss";
+        // var venueDateConverted = moment(venueDate, venueDateFormat);
+        console.log("\n" + artistName.toUpperCase() + " will be performing on " + moment(venueDate).format("MM/DD/YYYY") + " at the " + venueName + ".\n");
 
 
         
