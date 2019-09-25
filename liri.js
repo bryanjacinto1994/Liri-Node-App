@@ -42,7 +42,7 @@ var artistName = process.argv[2];
 // }
 
 //Make a url request with BandsinTown
-var queryURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp&date=upcoming"
+var queryURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"
 
 //Log the URL for future de-bugging.
 console.log(queryURL);
@@ -50,22 +50,26 @@ console.log(queryURL);
 //Get function via axio to make requests with the API key
 axios.get(queryURL).then(
     function(response){
-        //Holds artist name and console.log that artist is searched
-        var artist = response.name;
-        console.log("You have searched " + artist);
-        console.log(artist);
-        //Holds Venue Locations
-        var venueName = JSON.stringify(response.venue)
-        console.log("The name of the venue where " + artist + " is performing is at " + venueName);
-        console.log(venueName);
-        //Holds events date
-        var date = response.datetime;
-        
-        console.log(date);
-
+        //This logs the artist name 
+        console.log("Artist: " + artistName);
+        //A variable holding a  value of venue name and console.log venueName
+        var venueName = response.data[0].venue.name;
+        console.log("Venue Name: " + venueName);
 
         
         
-    }
-
-)
+    })
+        .catch(function(error){
+            if(error.response){
+                console.log(error.response.name);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+            else if (error.request){
+                console.log(error.request);
+            }
+            else{
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+        });
