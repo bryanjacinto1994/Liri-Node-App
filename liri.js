@@ -175,7 +175,7 @@ axios.get(movieURL).then(
         //This logs the Rating of the movie via IMDB
         console.log("IMDB Ratings: " + response.data.imdbRating + "\n");
         //This logs the Rating of the movie via Rotten Tomatoes
-        // console.log("Other Ratings: " + response.data.Ratings + "\n"); ==================== Go back to this ==================
+        console.log("RottenTomatoes Ratings: " + response.data.Ratings[1].Value + "\n"); //==================== Go back to this ==================
         //This logs the Country where the movie was produced
         console.log("Country: " + response.data.Country + "\n");
         //This logs the Plot of the movie
