@@ -66,9 +66,9 @@ Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 // var nodeArguments = process.argv;
 
 
-function concertLiri(){
+function concertLiri(artistName){
     //Make an empty variable to hold artist name
-var artistName = process.argv[2];
+
 
 //Make a 'for loop' function so the search can take in two words name.
 // for (var i = 2; i < nodeArguments.length; i++){
@@ -134,7 +134,20 @@ function spotifyLiri(){
         //This holds the Artist name
         console.log("Artist: " + response.tracks.items[0].artist[0].name);
     })
-    .catch 
+    .catch (function(error){
+        if (error.response){
+            console.log(error.response.name);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
+        else if (error.request){
+            console.log(error.request);
+        }
+        else{
+            console.log("Error", error.message);
+        }
+        console.log(error.config);
+    })
     
         
 
