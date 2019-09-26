@@ -142,7 +142,8 @@ function spotifyLiri(spotifyMusicName) {
                 //This holds the Song name
                 console.log("Song: " + response.tracks.items[0].name);
                 //This holds the Preview link
-                
+                console.log("Preview Song: " + response.tracks.items[0].preview_url);
+
             }
 
 
