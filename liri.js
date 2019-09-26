@@ -10,7 +10,7 @@ do-what-it-says
 */
 
 
-//============================= [Spotify Keys] =============================
+//============================= [Spotify Keys] =============================//
 //A variable that imports the keys.js file
 var keys = require("./keys.js"); 
 var Spotify = require('node-spotify-api');
@@ -18,23 +18,37 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
 
+//============================= [NPM Packages] =============================//
+//Include axios npm package
+var axios = require("axios");
+//Include moment npm package
+var moment = require('moment');
+
+
+//============================= [Switch Case Break] =============================//
 //Make a Switch statement that has different actions
+
+var action = process.argv[2];
+var search = process.argv[3];
+
+
+
 switch(action){
     
     case "concert-this":
-        concertThis();
+        concertThis(search);
         break;
 
     case "spotify-this-song":
-        spotifyThis();
+        spotifyThis(search);
         break;
 
     case "movie-this":
-        movieThis();
+        omdb(search);
         break;
 
     case "do-what-it-says":
-        doWhatItSays();
+        doWhatItSays(search);
         break;    
 }    
 
@@ -47,10 +61,6 @@ Name of the venue
 Venue location
 Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 
-//Include axios npm package
-var axios = require("axios");
-//Include moment npm package
-var moment = require('moment');
 
 //Store arguments in an Array
 // var nodeArguments = process.argv;
@@ -132,8 +142,8 @@ function spotifyThis(){
 
 //============================= [Open Movie Data Base] =============================//
 
-/*
-//Make a variable that holds value of process.argv[2]
+function omdb(){
+    //Make a variable that holds value of process.argv[2]
 var movieName = process.argv[2];
 //Make a variable that holds the open movie data base (OMDB) URL link
 var movieURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
@@ -173,26 +183,27 @@ axios.get(movieURL).then(
          }
          console.log(error.config);
     });
-*/
+
+}
+
 
 //============================= [Do-What-It-Says] =============================//
-/*
+
 //Make a fs.readFile function that stores random.txt
-fs.readFile("random.txt", "utf8", function(error, data){
-    //This will log to the Terminal/Git Bash if there are any errors
-    if(error){
-        return console.log(error);
-    }
+// fs.readFile("random.txt", "utf8", function(error, data){
+//     //This will log to the Terminal/Git Bash if there are any errors
+//     if(error){
+//         return console.log(error);
+//     }
 
-    //Prints the contents of data
-    console.log(data);
+//     //Prints the contents of data
+//     console.log(data);
 
-    var dataArray = data.split(",");
-    var action = dataArray[0];
-    var spotify1 = dataArray[1];
-    spotifyThis(spotify1)
+//     var dataArray = data.split(",");
+//     var action = dataArray[0];
+//     var spotify1 = dataArray[1];
+//     spotifyThis(spotify1)
     
 
-    })
+//     })
 
-*/
