@@ -36,26 +36,26 @@ var search = process.argv[3];
 switch(action){
     
     case "concert-this":
-        concertThis(search);
+        concertLiri(search);
         break;
 
     case "spotify-this-song":
-        spotifyThis(search);
+        spotifyLiri(search);
         break;
 
     case "movie-this":
-        omdb(search);
+        omdbLiri(search);
         break;
 
     case "do-what-it-says":
-        doWhatItSays(search);
+        doWhatItSaysLiri();
         break;    
 }    
 
 
 
 //============================= [BandsinTown Concerts] =============================//
-/* 
+/*
 Name of the artist
 Name of the venue
 Venue location
@@ -65,9 +65,9 @@ Date of the Event (use moment to format this as "MM/DD/YYYY")*/
 //Store arguments in an Array
 // var nodeArguments = process.argv;
 
-/*
 
-//Make an empty variable to hold artist name
+function concertLiri(){
+    //Make an empty variable to hold artist name
 var artistName = process.argv[2];
 
 //Make a 'for loop' function so the search can take in two words name.
@@ -121,11 +121,13 @@ axios.get(bandsURL).then(
             }
             console.log(error.config);
         });
-*/
+
+}
+
 
 //============================= [Spotify] =============================//
 
-function spotifyThis(){
+function spotifyLiri(){
 
     spotify.search({ type: 'track', query: musicName})
     .then(function(response){
@@ -142,9 +144,7 @@ function spotifyThis(){
 
 //============================= [Open Movie Data Base] =============================//
 
-function omdb(){
-    //Make a variable that holds value of process.argv[2]
-var movieName = process.argv[2];
+function omdbLiri(movieName){
 //Make a variable that holds the open movie data base (OMDB) URL link
 var movieURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 console.log(movieURL);
@@ -153,8 +153,10 @@ console.log(movieURL);
 axios.get(movieURL).then(
     function(response){
         // console.log(response);
+        
+        if (response.data.Title != undefined){
         //This logs the movie Title name
-        console.log("\nTitle: " + movieName + "\n");
+        console.log("\nTitle: " + response.data.Title + "\n");
         //This logs the Year of the movie
         console.log("Year: " + response.data.Year + "\n");
         //This logs the Rating of the movie via IMDB
@@ -167,6 +169,10 @@ axios.get(movieURL).then(
         console.log("Plot: " + response.data.Plot + "\n");
         //This logs the Actors in the movie
         console.log("Cast: " + response.data.Actors + "\n");
+        }
+        else{
+            omdbLiri("Mr. Nobody")
+        }
     })
 
     .catch(function(error){
@@ -189,21 +195,22 @@ axios.get(movieURL).then(
 
 //============================= [Do-What-It-Says] =============================//
 
-//Make a fs.readFile function that stores random.txt
-// fs.readFile("random.txt", "utf8", function(error, data){
-//     //This will log to the Terminal/Git Bash if there are any errors
-//     if(error){
-//         return console.log(error);
-//     }
+function doWhatItSaysLiri(){
+    //Make a fs.readFile function that stores random.txt
+fs.readFile("random.txt", "utf8", function(error, data){
+    //This will log to the Terminal/Git Bash if there are any errors
+    if(error){
+        return console.log(error);
+    }
 
-//     //Prints the contents of data
-//     console.log(data);
+    //Prints the contents of data
+    console.log(data);
 
-//     var dataArray = data.split(",");
-//     var action = dataArray[0];
-//     var spotify1 = dataArray[1];
-//     spotifyThis(spotify1)
+    var dataArray = data.split(",");
+    spotifyLiri(dataArray[1]);
     
 
-//     })
+    })
+}
+
 
