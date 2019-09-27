@@ -106,7 +106,8 @@ switch (action) {
 }
 ```
 liri.js:<br>
-This is a snippet of the "spotify-this-song" command. There is a statement made "(!search)" if there is no song input, it will give the default song, "The Sign, Ace of Base", automatically. <br><br>
+This is a snippet of the "spotify-this-song" command. 
+<br>There is a statement made: "(!search)" if there is no song input, it will give the default song, "The Sign, Ace of Base", automatically. <br><br>
 A spotify.search function was created to get the song that was searched by inputting "node liri.js spotify-this-song "song/artist name" on the Terminal/Git Bash.
 ```javascript
 //If there is no search inputed in the Terminal/Git Bash, this function will automatically search up the default song.
