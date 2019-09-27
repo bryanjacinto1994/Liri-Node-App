@@ -131,24 +131,36 @@ function concertLiri(artistName) {
 -The album that the song is from
 */
 
-function spotifyLiri(spotifyMusicName) {
-// console.log(spotify)
-    spotify.search({ type: 'track', query: spotifyMusicName })
+function spotifyLiri(search) {
+    // console.log(spotify)
+
+  
+    if(!search){
+        search = "The Sign, Ace of Base";        
+    }
+
+    spotify.search({ type: 'track', query: search })
         .then(function (response) {
 
-            if (response.tracks.total != undefined) {
-                //This holds the Artist name
-                console.log("Artist: " + response.tracks.items[0].artists[0].name);
-                //This holds the Song name
-                console.log("Song: " + response.tracks.items[0].name);
-                //This holds the Preview link
-                console.log("Preview Song: " + response.tracks.items[0].preview_url);
-                //This holds the Album name
-                console.log("Album: " + response.tracks.items[0].album.name);
-            }
+           
+            
+                 //This holds the Artist name
+            console.log("Artist: " + response.tracks.items[0].artists[0].name);
+            //This holds the Song name
+            console.log("Song: " + response.tracks.items[0].name);
+            //This holds the Preview link
+            console.log("Preview Song: " + response.tracks.items[0].preview_url);
+            //This holds the Album name
+            console.log("Album: " + response.tracks.items[0].album.name);
+            
+           
+
+           
 
 
         })
+
+        
         .catch(function (error) {
             if (error.response) {
                 console.log(error.response.name);
@@ -164,7 +176,7 @@ function spotifyLiri(spotifyMusicName) {
             console.log(error.config);
         })
 
-
+       
 
 
 }
