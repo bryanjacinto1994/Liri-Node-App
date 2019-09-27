@@ -9,8 +9,10 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 
 ## Images
 
-![Site]()
-
+#### concert-this input:
+![Site](./Screenshots/concert-this.png)<br>
+#### concert-this output:
+![Site](./Screenshots/concert-this-result.png)
 
 <hr>
 
@@ -34,7 +36,7 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 
 ## Summary
 
-Using JavaScript and all the NPM packages listed above via Visual Studio Code, 
+Using JavaScript and all the NPM packages listed above via Visual Studio Code, a "Language Interpretation and Recognition Interface" was created. 
 
 
 <hr>
