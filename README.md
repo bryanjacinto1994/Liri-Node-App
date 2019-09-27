@@ -36,6 +36,7 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 * Git - Version control system to track changes to source code.
 * Github - Hosts respository that can be deployed to GitHub pages.
 <br>
+
 ### NPM Packages Used:
 * MomentJS
 * Axios
@@ -113,7 +114,8 @@ fs.appendFile("log.txt", action + ', ', function(err){
 
 
 ## Author Links
-Linkedin: https://www.linkedin.com/in/bryan-jacinto-100438aa/
+Linkedin:<br>
+https://www.linkedin.com/in/bryan-jacinto-100438aa/
 
-Github:
+Github:<br>
 https://github.com/bryanjacinto1994
