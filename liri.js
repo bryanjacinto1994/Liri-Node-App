@@ -103,6 +103,8 @@ function concertLiri(artistName) {
 
 
         })
+        
+        //This function catches any error if there is one 
         .catch(function (error) {
             if (error.response) {
                 console.log(error.response.name);
@@ -130,7 +132,8 @@ function concertLiri(artistName) {
 */
 
 function spotifyLiri(search) {
-    // console.log(spotify)
+
+    // console.log(search)
 
     //If there is no search inputed in the Terminal/Git Bash, this function will automatically search up the default song.
     if(!search){
@@ -142,15 +145,16 @@ function spotifyLiri(search) {
         .then(function (response) {
 
            //This holds the Artist name
-            console.log("Artist: " + response.tracks.items[0].artists[0].name);
+            console.log("\nArtist: " + response.tracks.items[0].artists[0].name + "\n");
             //This holds the Song name
-            console.log("Song: " + response.tracks.items[0].name);
+            console.log("Song: " + response.tracks.items[0].name + "\n");
             //This holds the Preview link
-            console.log("Preview Song: " + response.tracks.items[0].preview_url);
+            console.log("Preview Song: " + response.tracks.items[0].preview_url + "\n");
             //This holds the Album name
-            console.log("Album: " + response.tracks.items[0].album.name);
+            console.log("Album: " + response.tracks.items[0].album.name + "\n");
         })
-           //This function catches any error if there is one 
+           
+            //This function catches any error if there is one 
           .catch(function (error) {
             if (error.response) {
                 console.log(error.response.name);
@@ -170,9 +174,9 @@ function spotifyLiri(search) {
 
 //============================= [Open Movie Data Base] =============================//
 
-function omdbLiri(movieName) {
+function omdbLiri(movie) {
     //Make a variable that holds the open movie data base (OMDB) URL link
-    var movieURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    var movieURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
     console.log(movieURL);
 
     //Get function via axio to make requests with the API key
@@ -180,15 +184,17 @@ function omdbLiri(movieName) {
         function (response) {
             // console.log(response);
 
-            if (response.data.Title != undefined) {
+            //Made an if or else statement.
+            //If 
+            if (movie != undefined) {
                 //This logs the movie Title name
-                console.log("\nTitle: " + response.data.Title + "\n");
+                console.log("\nTitle: " + movie + "\n");
                 //This logs the Year of the movie
                 console.log("Year: " + response.data.Year + "\n");
                 //This logs the Rating of the movie via IMDB
                 console.log("IMDB Ratings: " + response.data.imdbRating + "\n");
                 //This logs the Rating of the movie via Rotten Tomatoes
-                console.log("RottenTomatoes Ratings: " + response.data.Ratings[1].Value + "\n"); //==================== Go back to this ==================
+                console.log("RottenTomatoes Ratings: " + response.data.Ratings[1].Value + "\n"); 
                 //This logs the Country where the movie was produced
                 console.log("Country: " + response.data.Country + "\n");
                 //This logs the Plot of the movie
@@ -200,7 +206,8 @@ function omdbLiri(movieName) {
                 omdbLiri("Mr. Nobody")
             }
         })
-
+        
+        //This function catches any error if there is one 
         .catch(function (error) {
             if (error.response) {
                 console.log(error.response.name);
@@ -230,12 +237,16 @@ function doWhatItSaysLiri() {
         }
 
         //Prints the contents of data
-        console.log(data);
+        // console.log(data);
 
+        //1. Made a variable to store the data.split(", ").
         var dataArray = data.split(",");
-        spotifyLiri(dataArray[1]);
-
-
+        //2. Made for a for loop to iterate through all the songs in the random.txt file
+        for (var i = 0; i < dataArray.length; i++){
+        //3. Called out the spotifyLiri function with an arguement of the variable storing the data.split(", ")
+            spotifyLiri(dataArray[i]);
+        }
+        
     })
 }
 
