@@ -57,30 +57,35 @@ switch (action) {
 -Name of the artist
 -Name of the venue
 -Venue location
--Date of the Event (use moment to format this as "MM/DD/YYYY")*/
+-Date of the Event (use moment to format this as "MM/DD/YYYY")
+*/
 
-
+/*
+var artistName ="";
 //Store arguments in an Array
-// var nodeArguments = process.argv;
+var nodeArguments = process.argv;
 
+
+    //Make a 'for loop' function so the search can take in two words name. //////////////////// ================= GO BACK TO THIS ================= ////////////////////
+    for (var i = 2; i < nodeArguments.length; i++){
+        if(i > 2 && i < search.length){
+            artistName = artistName + "+" + nodeArguments[i];
+        }
+        else{
+            artistName += nodeArguments[i];
+        }
+    }
+
+*/
 
 function concertLiri(artistName) {
-
-    //Make a 'for loop' function so the search can take in two words name. ================= GO BACK TO THIS =================
-    // for (var i = 2; i < nodeArguments.length; i++){
-    //     if(i > 2 && i < nodeArguments.length){
-    //         artistName = artistName + "+" + nodeArguments[i];
-    //     }
-    //     else{
-    //         artistName += nodeArguments[i];
-    //     }
-    // }
+    
 
     //Make a url request with BandsinTown
     var bandsURL = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"
 
     //Log the URL for future de-bugging.
-    console.log(bandsURL);
+    // console.log(bandsURL);
 
     //Get function via axio to make requests with the API key
     axios.get(bandsURL).then(
@@ -89,16 +94,16 @@ function concertLiri(artistName) {
             console.log("\nArtist: " + artistName + "\n");
             //A variable holding a value of venue name and console.log venueName
             var venueName = response.data[0].venue.name;
-            console.log("\nVenue Name: " + venueName + "\n");
+            console.log("Venue Name: " + venueName + "\n");
             //A variable holding a value of venue city and state(region) location
             var venueCity = response.data[0].venue.city;
             var venueState = response.data[0].venue.region;
-            console.log("\nThe Venue is located at: " + venueCity + ", " + venueState + ".\n")
+            console.log("The Venue is located at: " + venueCity + ", " + venueState + ".\n")
             //Holds the date with the moment MM Do YYYY Format
             var venueDate = response.data[0].datetime;
             // var venueDateFormat = "YYYY MM DD T hh:mm:ss";
             // var venueDateConverted = moment(venueDate, venueDateFormat);
-            console.log("\n" + artistName.toUpperCase() + " will be performing on " + moment(venueDate).format("MM/DD/YYYY") + " at the " + venueName + ".\n");
+            console.log(artistName.toUpperCase() + " will be performing on " + moment(venueDate).format("MM/DD/YYYY") + " at the " + venueName + ".\n");
 
 
 
@@ -177,6 +182,7 @@ function spotifyLiri(search) {
 function omdbLiri(movie) {
     //Make a variable that holds the open movie data base (OMDB) URL link
     var movieURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+    //Log the URL for future de-bugging.
     console.log(movieURL);
 
     //Get function via axio to make requests with the API key
@@ -250,4 +256,11 @@ function doWhatItSaysLiri() {
     })
 }
 
+//============================= [BONUS] =============================//
 
+//This 'fs.appendfile' function appends the data that is input in the Terminal/Git Bash
+
+fs.appendFile("log.txt", action + ', ', function(err){
+    if (err) throw err;
+    console.log("The Data Was Appended To log.txt");
+})
