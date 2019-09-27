@@ -1,15 +1,6 @@
 //Reads and sets any evironment variables with the 'dotenv' package
 require("dotenv").config();
 
-/*
-Make liri.js take these commands in:
-conert-this
-spotify-this-song
-movie-this
-do-what-it-says
-*/
-
-
 //============================= [Spotify Keys] =============================//
 //A variable that imports the keys.js file
 var keys = require("./keys.js");
@@ -28,10 +19,17 @@ var moment = require('moment');
 //============================= [Switch Case Break] =============================//
 //Make a Switch statement that has different actions
 
+//Make a variable that holds in the "process.argv[2]"
 var action = process.argv[2];
 var search = process.argv[3];
 
-
+/*
+Make liri.js take these commands in:
+conert-this
+spotify-this-song
+movie-this
+do-what-it-says
+*/
 
 switch (action) {
 
@@ -134,17 +132,16 @@ function concertLiri(artistName) {
 function spotifyLiri(search) {
     // console.log(spotify)
 
-  
+    //If there is no search inputed in the Terminal/Git Bash, this function will automatically search up the default song.
     if(!search){
         search = "The Sign, Ace of Base";        
     }
 
+    //This function searches for a song, artist, or track. *Google [node-spotify-api] for examples*
     spotify.search({ type: 'track', query: search })
         .then(function (response) {
 
-           
-            
-                 //This holds the Artist name
+           //This holds the Artist name
             console.log("Artist: " + response.tracks.items[0].artists[0].name);
             //This holds the Song name
             console.log("Song: " + response.tracks.items[0].name);
@@ -152,16 +149,9 @@ function spotifyLiri(search) {
             console.log("Preview Song: " + response.tracks.items[0].preview_url);
             //This holds the Album name
             console.log("Album: " + response.tracks.items[0].album.name);
-            
-           
-
-           
-
-
         })
-
-        
-        .catch(function (error) {
+           //This function catches any error if there is one 
+          .catch(function (error) {
             if (error.response) {
                 console.log(error.response.name);
                 console.log(error.response.status);
@@ -174,12 +164,8 @@ function spotifyLiri(search) {
                 console.log("Error", error.message);
             }
             console.log(error.config);
-        })
-
-       
-
-
-}
+        });
+};
 
 
 //============================= [Open Movie Data Base] =============================//
