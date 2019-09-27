@@ -21,7 +21,10 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 ![Site](./Screenshots/movie-this.png)<br>
 #### movie-this output:
 ![Site](./Screenshots/movie-this-result.png)<br>
-
+#### do-what-it-says input:
+![Site](./Screenshots/do-what-it-says.png)<br>
+#### do-what-it-says output:
+![Site](./Screenshots/do-what-it-says-result.png)<br>
 
 <hr>
 
