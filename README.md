@@ -17,6 +17,11 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 ![Site](./Screenshots/spotify-this-song.png)<br>
 #### spotify-this-song output:
 ![Site](./Screenshots/spotify-this-song-results.png)<br>
+#### movie-this input:
+![Site](./Screenshots/movie-this.png)<br>
+#### movie-this output:
+![Site](./Screenshots/movie-this-result.png)<br>
+
 
 <hr>
 
