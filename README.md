@@ -12,7 +12,11 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 #### concert-this input:
 ![Site](./Screenshots/concert-this.png)<br>
 #### concert-this output:
-![Site](./Screenshots/concert-this-result.png)
+![Site](./Screenshots/concert-this-result.png)<br>
+#### spotify-this-song input:
+![Site](./Screenshots/spotify-this-song.png)<br>
+#### spotify-this-song output:
+![Site](./Screenshots/spotify-this-song-results.png)<br>
 
 <hr>
 
