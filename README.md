@@ -14,6 +14,7 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 * jQuery - A JavaScript library that simplifys to manipulate HTML DOM.
 * Git - Version control system to track changes to source code.
 * Github - Hosts respository that can be deployed to GitHub pages.
+* NodeJS - A JavaScript runtime built on Chrome's V8 JavaScript engine
 <br>
 
 ### NPM Packages Used:
