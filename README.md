@@ -5,27 +5,6 @@
 Github: <br>
 https://github.com/bryanjacinto1994/Liri-Node-App
 
-
-
-## Images
-
-#### concert-this input:
-![Site](./Screenshots/concert-this.png)<br>
-#### concert-this output:
-![Site](./Screenshots/concert-this-result.png)<br>
-#### spotify-this-song input:
-![Site](./Screenshots/spotify-this-song.png)<br>
-#### spotify-this-song output:
-![Site](./Screenshots/spotify-this-song-results.png)<br>
-#### movie-this input:
-![Site](./Screenshots/movie-this.png)<br>
-#### movie-this output:
-![Site](./Screenshots/movie-this-result.png)<br>
-#### do-what-it-says input:
-![Site](./Screenshots/do-what-it-says.png)<br>
-#### do-what-it-says output:
-![Site](./Screenshots/do-what-it-says-result.png)<br>
-
 <hr>
 
 ## Tools Used:
@@ -49,9 +28,58 @@ https://github.com/bryanjacinto1994/Liri-Node-App
 
 ## Summary
 
-Using JavaScript and all the NPM packages listed above via Visual Studio Code, a "Language Interpretation and Recognition Interface" was created. 
+Using JavaScript and all the NPM packages listed above via Visual Studio Code, a "Language Interpretation and Recognition Interface" or LIRI for short, was created. 
 
+For the NPM Packages (listed above), this was used to have access to get request from servers API in order to get the results using "axios.get()" function. In order to have access for that, I installed the npm onto the Terminal/Git Bash using the input "npm install axios". <br>
+The installation for the other npm packages are the same way:<br>
+* #### MomentJS: <br><br>$ npm install moment --save
+* #### Axios:<br><br> $ npm install axios
+* #### File System: <br><br>$ npm install file-system --save
+* #### Spotify:<br><br> $ npm install --save node-spotify-api
+* #### Dotenv:<br><br> $ npm install dotenv
 
+<br>
+
+After installing all these required npm packages, I created a value of each of these packages and stored them in variables using "require()".
+```javascript
+//Reads and sets any evironment variables with the 'dotenv' package
+require("dotenv").config();
+
+//============================= [Spotify Keys] =============================//
+//A variable that imports the keys.js file
+var keys = require("./keys.js");
+var Spotify = require('node-spotify-api');
+//Access the keys information with spotify
+var spotify = new Spotify(keys.spotify);
+var fs = require("fs");
+
+//============================= [NPM Packages] =============================//
+//Include axios npm package
+var axios = require("axios");
+//Include moment npm package
+var moment = require('moment');
+```
+Then I made a switch function that has four different actions/commands that will be used to get the results that was requested. Each actions does different functions:<br><br>
+* #### concert-this: <br>Searches for an artist and lets the user know when and where that artist's next event are.<br><br>
+##### concert-this input:
+![Site](./Screenshots/concert-this.png)<br>
+##### concert-this output:
+![Site](./Screenshots/concert-this-result.png)<br>
+* #### spotify-this:<br> Seaches for a song and returns an output lists of artist name, song, the preview url of the song (30 seconds preview), and lastly, the artist's album name.<br><br>
+##### spotify-this-song input:
+![Site](./Screenshots/spotify-this-song.png)<br>
+##### spotify-this-song output:
+![Site](./Screenshots/spotify-this-song-results.png)<br>
+* #### movie-this: <br>Searches for a movie and returns an output lists of movie title, year of the movie produced, the ratings for IMDB and RottenTomatoes, the country of where the movie was made and published, the plot summary of the movie, and the main-cast who played specific roles.<br><br>
+##### movie-this input:
+![Site](./Screenshots/movie-this.png)<br>
+##### movie-this output:
+![Site](./Screenshots/movie-this-result.png)<br>
+* #### do-what-it-says:<br> Calling out this function will return you the output of what is in the "random.txt" file. The spotify function is called out within do-what-it-says function so whenever this function is called on the Terminal/Git Bash, it gives the user the name of the song, the artists, preview url of the song (30 seconds preview), and the album name.
+##### do-what-it-says input:
+![Site](./Screenshots/do-what-it-says.png)<br>
+##### do-what-it-says output:
+![Site](./Screenshots/do-what-it-says-result.png)<br>
 <hr>
 
 ## Code Snippet
