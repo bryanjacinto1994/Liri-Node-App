@@ -7,9 +7,10 @@ var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 //Access the keys information with spotify
 var spotify = new Spotify(keys.spotify);
-var fs = require("fs");
 
 //============================= [NPM Packages] =============================//
+//Include file system npm package
+var fs = require("fs");
 //Include axios npm package
 var axios = require("axios");
 //Include moment npm package
